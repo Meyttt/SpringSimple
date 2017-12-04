@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="readerTom" class="collections.Books.Reader" scope="singleton">
+        <constructor-arg name="name" value="Tom"></constructor-arg>
+        <constructor-arg name="age" value="19"></constructor-arg>
+    </bean>
+    <bean id="uuid" class="java.util.UUID" factory-method="randomUUID" scope="prototype"></bean>
+    <bean id="TSBook" class="collections.Books.Book">
+        <constructor-arg name="identifier" ref="uuid"></constructor-arg>
+        <constructor-arg name="title" value="Adventures of Tom Sawyer"/>
+    </bean>
+    <bean id="library" class="collections.Books">
+        <property name="bookTypes">
+            <set>
+                <value>poetry</value>
+                <value>prose</value>
+            </set>
+        </property>
+        <property name="readers">
+            <list>
+                <value>Tom</value>
+                <value>Jess</value>
+                <null/>
+            </list>
+        </property>
+        <property name="sections">
+            <map>
+                <entry key="fantasy" value="3rd section"/>
+            </map>
+        </property>
+        <property name="bookMap">
+            <map>
+                <entry key-ref="readerTom" value-ref="TSBook"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>
