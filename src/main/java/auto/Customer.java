@@ -14,7 +14,10 @@ public class Customer {
     }
 
     public Person getPerson() {
+        System.out.println("nope");
+
         return person;
+
     }
     @Autowired
     public void setPerson(Person person) {

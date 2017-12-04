@@ -11,5 +11,7 @@ public class Main {
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring.xml");
 //        applicationContext.getBean();
         System.out.println("nope");
+        System.out.println("nope");
+
     }
 }
